@@ -1,0 +1,19 @@
+.title{
+    margin-top:8%;
+    margin-left: 8%;
+    font-size: 1.65rem;
+    font-weight: bold;
+}
+.signpage{
+    margin-top:16%;
+}
+
+.OTP {
+    position: absolute;
+    font-size: 1.4rem;
+    width: 35%;
+    background-color: var(--pcolor);
+    padding:2% 0%;
+    right: 4%;
+    bottom:10%
+}

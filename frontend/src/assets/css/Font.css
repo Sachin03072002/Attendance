@@ -1,0 +1,16 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: PoppinsRegular;
+    src: url(../fonts/PoppinsRegular.ttf);
+}
+@font-face {
+    font-family: PoppinsMedium;
+    src: url(../fonts/PoppinsMedium.ttf);
+}
+@font-face {
+    font-family: ProductSans;
+    src: url(../fonts/Product\ Sans\ Regular.ttf);
+}
