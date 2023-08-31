@@ -126,6 +126,7 @@ html {
   position: absolute;
   width: 50%;
   height: 100%;
+  /* left:0%; */
   background-color: var(--pcolor);
   border-radius: inherit;
   transition: 0.5s;

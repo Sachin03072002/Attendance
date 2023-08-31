@@ -62,17 +62,7 @@ export default function Login() {
             console.error('Error:', error);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
+    
     return (
         <form method="post" onSubmit={handleLoginForm} >
             <h5 className='input-heading'>Email ID</h5>
@@ -84,7 +74,7 @@ export default function Login() {
             <h5 className='input-heading'>Password</h5>
             <div className='input flex'>
                 <input type={pass} className='input-field' placeholder='Enter your password' name='Password' required />
-                <img src={eye} className="pass img" alt='imag' onClick={vision} />
+                <img src={eye} className="pass img" onClick={vision} />
             </div>
             <div className='warning'>{passWarning}</div>
             <div className='end-box'>

@@ -1,0 +1,27 @@
+@import url("BtnAnimation.css");
+
+.teacher{
+    margin-top:0%;
+    font-size: 2rem;
+}
+.req-field {
+    font-size: 1.6rem;
+    position: relative;
+    margin-top: 2.4%;
+    margin-left: 0.7%;
+    color: #ff0000;
+}
+
+.mobile {
+    background-image: url(../images/mobile.png);
+}
+
+.acc {
+    position: absolute;
+    font-size: 1.4rem;
+    width: 35%;
+    background-color: var(--pcolor);
+    padding: 2% 0%;
+    right: 4%;
+    bottom: 6%
+}

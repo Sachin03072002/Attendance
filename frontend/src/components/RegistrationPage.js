@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import bgvideo from '../assets/viedo/bg.mp4';
+import {React, useState } from 'react';
+import bgvideo from '../assets/video/bg.mp4';
 import '../assets/css/Login.css';
-import '../assets/css/Signup.css';
+import './Signup';
 import { useNavigate, Outlet } from 'react-router-dom';
 
 export default function RegistrationPage() {
@@ -27,12 +27,12 @@ export default function RegistrationPage() {
                     <div className='btn-box'>
                         <div className='btn-shadow' style={bar}></div>
                         <div className="btn-container flex">
-                            <button type='button' className='toggle login btn animate__animated animate__fadeInRight' onClick={login} href="/login">LOG IN</button>
-                            <button type='button' className='toggle signin btn animate__animated animate__fadeInLeft' onClick={signup} href="/signup">SIGN UP</button>
+                            <button type='button' className='toggle login btn' onClick={login} href="/login">LOG IN</button>
+                            <button type='button' className='toggle signin btn' onClick={signup} href="/signup">SIGN UP</button>
                         </div>
                     </div>
                     <div className='input-group'>
-                        <Outlet />
+                        <Outlet/>
                     </div>
                 </div>
             </div>

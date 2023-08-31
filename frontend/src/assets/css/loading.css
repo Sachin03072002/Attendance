@@ -1,9 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-#main {
+.loading{
+  background-color: white;
   display: flex;
   position: relative;
   justify-content: center;
