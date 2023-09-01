@@ -12,7 +12,7 @@ const teacherSchema = new mongoose.Schema({
         unique: true,
         lowercase: true,
         trim: true,
-        required: [true]
+        required: [true, "Email is required"]
     },
     Password: {
         type: String,

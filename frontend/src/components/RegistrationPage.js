@@ -1,20 +1,37 @@
-import {React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import bgvideo from '../assets/video/bg.mp4';
 import '../assets/css/Login.css';
 import './Signup';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 
 export default function RegistrationPage() {
-    const [bar, setbar] = useState({ left: "0%" })
+    const [bar, setbar] = useState({ left: "0%" });
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Use the location.pathname to determine the current route and set the bar style accordingly
+    const updateBarStyle = () => {
+        if (location.pathname === '/login') {
+            setbar({ left: "0%" });
+        } else if (location.pathname === '/signup') {
+            setbar({ left: "50%" });
+        }
+    };
+
     const login = () => {
-        setbar({ left: "0%" })
-        navigate('login')
-    }
+        navigate('login');
+        updateBarStyle();
+    };
+
     const signup = () => {
-        setbar({ left: "50%" })
-        navigate('signup')
-    }
+        navigate('signup');
+        updateBarStyle();
+    };
+
+    // Call updateBarStyle when the component mounts to set the initial style based on the current route
+    useEffect(() => {
+        updateBarStyle();
+    }, []);
 
     return (
         <>
@@ -32,7 +49,7 @@ export default function RegistrationPage() {
                         </div>
                     </div>
                     <div className='input-group'>
-                        <Outlet/>
+                        <Outlet />
                     </div>
                 </div>
             </div>

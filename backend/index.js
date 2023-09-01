@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 5000;
 const passport = require('passport');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -11,7 +11,10 @@ const passportGoogle = require('./config/passport_google_auth_stratergy');
 const db = require('./config/mongoose');
 const MongoStore = require('connect-mongo')(session);
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}));
 // Use JSON and URL-encoded body parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

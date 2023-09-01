@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const otp = require('../../../config/randomTop');
-
+const helper = require('../../../config/helper');
 let generatedOTP; // Declare a variable to store the OTP
 
 router.post('/otpUserRecognition', (req, res) => {
 
     const { to } = req.body;
+    const generatedEmail = to;
+    helper.setGeneratedEmail(generatedEmail);
 
 
     generatedOTP = otp.generateOTP(); // Store the generated OTP
@@ -49,10 +51,12 @@ router.post('/otpUserRecognition', (req, res) => {
 router.post('/verify-otp', (req, res) => {
     const { enteredOTP } = req.body;
     if (enteredOTP === generatedOTP) {
-        res.status(200).json({ message: 'OTP verification successful' });
+        const storedEmail = helper.getGeneratedEmail();
+        res.status(200).json({ message: 'OTP verification successful', email: storedEmail });
     } else {
         res.status(400).json({ message: 'Incorrect OTP' });
     }
+
 });
 
 

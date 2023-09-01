@@ -6,7 +6,8 @@ module.exports.register = async function (req, res) {
         const teacher = await Teacher.create(req.body);
         return res.status(200).json({
             success: true,
-            message: teacher
+            message: 'Teacher registration successful',
+            redirectTo: '/login' // Redirect URL
         });
     } catch (err) {
         return res.status(500).json({
@@ -15,22 +16,6 @@ module.exports.register = async function (req, res) {
         });
     }
 }
-// module.exports.login = async function (req, res) {
-//     if (req.isAuthenticated()) {
-//         return res.redirect('/teacher/profile');
-//     }
-//     return res.render('', {
-//         // title:
-//     })
-// }
-// module.exports.signup = async function (req, res) {
-//     if (req.isAuthenticated()) {
-//         return res.redirect('/teacher/login');
-//     }
-//     return res.render('', {
-//         // title:
-//     })
-// }
 module.exports.create = async function (req, res) {
     try {
         let { Email, Password } = req.body;
@@ -48,6 +33,7 @@ module.exports.create = async function (req, res) {
             });
         }
         const isMatch = await teacher.matchPassword(Password);
+        const objectId = teacher._id;
         if (!isMatch) {
             return res.status(401).json({
                 success: false,
@@ -58,7 +44,8 @@ module.exports.create = async function (req, res) {
         console.log(token);
         res.status(200).json({
             success: true,
-            message: `Log in successfully ~ keep the token safe ${teacher.Name}`
+            message: `Log in successfully ~ keep the token safe ${teacher.Name}`,
+            redirectTo: `/homepage/${objectId}`
         });
     } catch (err) {
         console.log(err);
